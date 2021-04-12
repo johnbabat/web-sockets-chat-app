@@ -3,7 +3,7 @@ WEB SOCKETS CHAT APP
 
 ### Introduction
 
-The app is a basic chat application using web sockets. Users can enter into any room of choice and chat with other users in the room
+The app is a basic chat application using web sockets. Users can enter into any room of choice and chat with other users in the room.
 
 The app was built to practice web sockets.
 

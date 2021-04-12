@@ -1,10 +1,11 @@
 import './App.css';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import io from 'socket.io-client';
 
 // Screens
 import Chat from './screens/Chat';
 import Join from './screens/Join';
+import NotFound from './screens/NotFound';
 
 var socket;
 
@@ -18,21 +19,25 @@ if (window.location.hostname === "localhost") {
 function App() {
   return (
     <Router>
-      <div className="App">
-          <Route 
-            exact 
-            path="/" 
-            render={(props) => (
-              <Join {...props} socket={socket}/>
-            )}
-          />
-          <Route
-            path='/chat'
-            render={(props) => (
-              <Chat {...props} socket={socket} />
-            )}
-          />
-      </div>
+      <div className="app">
+        <Switch>
+            <Route 
+              exact 
+              path="/" 
+              render={(props) => (
+                <Join {...props} socket={socket}/>
+              )}
+            />
+            <Route
+              path='/chat'
+              render={(props) => (
+                <Chat {...props} socket={socket} />
+              )}
+            />
+            <Route component={NotFound}></Route>
+          </Switch>
+        </div>
+      
     </Router>
   );
 }
